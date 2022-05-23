@@ -22,4 +22,3 @@ class StaticPageController extends Controller
         return view('static_page/about');
     }
 }
-    

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\status;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -27,20 +28,14 @@ class StatusesController extends Controller
         return redirect()->back();
     }
 
-//    public function store(Request $request)
-//    {
-//
-//
-//        $this->validate($request, [
-//            'content' => 'required|max:140'
-//        ]);
-//
-//        Auth::user()->statuses()->create([
-//            'content' => $request['content']
-//        ]);
-//        session()->flash('success', '发布成功！');
-//        return redirect()->back();
-//    }
+
+    public function destroy(status $status)
+    {
+        $this->authorize('destroy', $status);
+        $status->delete();
+        session()->flash('success', '微博已被成功删除！');
+        return redirect()->back();
+    }
 
 
 }

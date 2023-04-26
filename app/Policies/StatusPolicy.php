@@ -10,6 +10,7 @@ class StatusPolicy
 {
     use HandlesAuthorization;
 
+
     /**
      * Create a new policy instance.
      *
